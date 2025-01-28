@@ -5,7 +5,7 @@ FROM python:3.9
 WORKDIR /app
 
 # 3️⃣ Kopiere das Skript in den Container
-COPY TRANSCRIBE1.py .
+COPY TRANSCRIBE.py .
 
 # 4️⃣ Installiere die benötigte Bibliothek
 RUN pip install youtube-transcript-api
