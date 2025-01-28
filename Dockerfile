@@ -1,14 +1,17 @@
-# 1️⃣ Basis-Image: Nutze Python 3.9
+# 1️⃣ Basis-Image mit Python
 FROM python:3.9
 
-# 2️⃣ Setze Arbeitsverzeichnis im Container
+# 2️⃣ Setze Arbeitsverzeichnis
 WORKDIR /app
 
-# 3️⃣ Kopiere das Skript in den Container
-COPY TRANSCRIBE.py .
+# 3️⃣ Kopiere alle Dateien ins Image
+COPY . .
 
-# 4️⃣ Installiere die benötigte Bibliothek
-RUN pip install youtube-transcript-api
+# 4️⃣ Installiere Flask & YouTube API Library
+RUN pip install --no-cache-dir flask youtube-transcript-api
 
-# 5️⃣ Starte das Skript automatisch
-CMD ["python", "TRANSCRIBE1.py"]
+# 5️⃣ Setze Umgebungsvariable für Cloud Run
+ENV PORT=8080
+
+# 6️⃣ Starte die Flask-App
+CMD ["python", "TRANSCRIBE.py"]
