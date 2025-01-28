@@ -1,8 +1,10 @@
 import os
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # <-- NEU
 from youtube_transcript_api import YouTubeTranscriptApi
 
 app = Flask(__name__)
+CORS(app)  # <-- Erlaubt externe Anfragen (z. B. von deiner Homepage)
 
 @app.route("/")
 def home():
@@ -15,7 +17,6 @@ def transcribe():
         return jsonify({"error": "Keine URL angegeben"}), 400
 
     try:
-        # Extrahiere die Video-ID
         if "youtube.com" in video_url or "youtu.be" in video_url:
             if "v=" in video_url:
                 video_id = video_url.split("v=")[-1].split("&")[0]
