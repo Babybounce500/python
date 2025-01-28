@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # 4️⃣ Installiere Flask & YouTube API Library
-RUN pip install --no-cache-dir flask youtube-transcript-api
+RUN pip install --no-cache-dir flask flask-cors youtube-transcript-api
 
 # 5️⃣ Setze Umgebungsvariable für Cloud Run
 ENV PORT=8080
