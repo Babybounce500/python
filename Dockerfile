@@ -7,7 +7,7 @@ WORKDIR /app
 # 3️⃣ Kopiere alle Dateien ins Image
 COPY . .
 
-# 4️⃣ Installiere alle benötigten Pakete (Flask, Flask-CORS, youtube-transcript-api)
+# 4️⃣ Installiere Flask & alle Abhängigkeiten
 RUN pip install --no-cache-dir flask flask-cors youtube-transcript-api
 
 # 5️⃣ Setze Umgebungsvariable für Cloud Run
